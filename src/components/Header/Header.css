@@ -6,6 +6,7 @@ header {
     align-items: center;
     justify-content: space-between;
     max-height: 30px;
+    padding: 1.2rem;
 }
 
 header h1 {
@@ -27,6 +28,8 @@ header input {
 
 .search-field img {
     background-color: #fb5b11;
+    padding: .2rem;
+    border-radius: 0 .4rem .4rem 0;
 }
 
 img {
