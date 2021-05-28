@@ -1,17 +1,36 @@
 import React, { useState, useEffect } from 'react'
 import { getPokemons } from '../../service/pokeService'
+import Button from '../Button/Button'
 import PokeCard from '../PokeCard/PokeCard'
+
+import './PokeStore.css'
 
 function PokeStore() {
     const [pokeList, setPokeList] = useState([])
 
     useEffect(() => {
-        getData()
+        getData('/pokemon')
     }, [])
 
-    async function getData() {
-        const pokeData = await getPokemons()
+    async function getData(url) {
+        if(pokeList != []) {
+            setPokeList([])
+        }
+        
+        const pokeData = await getPokemons(url)
         setPokeList(pokeData)
+    }
+
+    function nextCheckup() {
+        if(pokeList.next !== null) {
+            return true
+        } else return false
+    }
+
+    function previousCheckup() {
+        if(pokeList.previous !== null) {
+            return true
+        } else return false
     }
 
     return (
@@ -28,7 +47,9 @@ function PokeStore() {
                     <h1>Carregando dados...</h1>
                 }
             </div>
-
+            
+            {previousCheckup() && <Button value="Página anterior" onClick={() => getData(pokeList.previous)}/>}
+            {nextCheckup() && <Button value="Próxima Página" onClick={() => getData(pokeList.next)}/>}
             
         </section>
     )

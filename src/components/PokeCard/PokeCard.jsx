@@ -1,10 +1,32 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { getPokeData } from '../../service/pokeService'
+import Button from '../Button/Button'
+import './PokeCard.css'
 
 function PokeCard({ infos }) {
+    const [pokeData, setPokeData] = useState([])
+
+    useEffect(() => {
+        callPokeData()        
+    }, [])
+
+    async function callPokeData() {
+        const data = await getPokeData(infos.url)
+        setPokeData(data)
+    }
+
     return (
         <>
-            <h1>{infos.name}</h1>
-            
+        {
+            pokeData && pokeData.sprites ?
+            <div className="pokemon-info">
+            <img src={pokeData.sprites.front_default} alt="" />
+            <h3>{pokeData.name}</h3>
+            <p>Type: {pokeData.types[0].type.name}</p>
+            <Button value="Saiba mais"/>
+            </div>
+            : <h1>Loading data...</h1>
+        }
         </>
     )
 }

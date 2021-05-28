@@ -4,8 +4,8 @@ const create = axios.create({
     baseURL: 'https://pokeapi.co/api/v2/',
 })
 
-async function getPokemons() {
-    const pokeResponse = await create.get('/pokemon')
+async function getPokemons(url) {
+    const pokeResponse = await create.get(url)
     const pokeList = pokeResponse.data
 
     return pokeList
