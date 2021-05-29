@@ -35,21 +35,25 @@ function PokeStore() {
 
     return (
         <section>
+
             <input type="search" name="" id="" />
             <div className="filter-area">
                 <p>Filter by type: </p>
             </div>
-            <div className="cards-container">
-                {   pokeList.results ?
-                    pokeList.results.map(item => (
-                        <PokeCard infos={item}/>
-                    )) :
-                    <h1>Carregando dados...</h1>
-                }
+            <div className="pokedex-area">
+                {previousCheckup() && <Button value="Página anterior" onClick={() => getData(pokeList.previous)}/>}
+
+                <div className="cards-container">
+                    {   pokeList.results ?
+                        pokeList.results.map(item => (
+                            <PokeCard infos={item}/>
+                            )) :
+                            <h1>Carregando dados...</h1>
+                    }
+                </div>
+                
+                {nextCheckup() && <Button value="Próxima Página" onClick={() => getData(pokeList.next)}/>}
             </div>
-            
-            {previousCheckup() && <Button value="Página anterior" onClick={() => getData(pokeList.previous)}/>}
-            {nextCheckup() && <Button value="Próxima Página" onClick={() => getData(pokeList.next)}/>}
             
         </section>
     )

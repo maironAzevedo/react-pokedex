@@ -1,8 +1,16 @@
+.pokedex-area {
+    display: flex;
+    width: 80%;
+    max-width: 1500px;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
 .cards-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    width: 80%;
-    max-width: 1080px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     margin: 0 auto;
+    max-width: 1080px;
     grid-gap: 2.4rem;
 }
+
