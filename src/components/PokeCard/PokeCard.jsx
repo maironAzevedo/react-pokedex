@@ -20,10 +20,12 @@ function PokeCard({ infos }) {
         {
             pokeData && pokeData.sprites ?
             <div className="pokemon-info">
-            <img src={pokeData.sprites.front_default} alt="" />
-            <h3>{pokeData.name}</h3>
-            <p>Type: {pokeData.types[0].type.name}</p>
-            <Button value="Saiba mais"/>
+                <div className="poke-header">
+                    <img src={pokeData.sprites.front_default} alt="" />
+                    <h3>{pokeData.name}</h3>
+                </div>
+                <p>Type: {pokeData.types[0].type.name}</p>
+                <Button value="Saiba mais"/>
             </div>
             : <h1>Loading data...</h1>
         }

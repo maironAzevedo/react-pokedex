@@ -4,4 +4,5 @@
     width: 80%;
     max-width: 1080px;
     margin: 0 auto;
+    grid-gap: 2.4rem;
 }
