@@ -29,8 +29,8 @@ function PokeStore() {
 
     function previousCheckup() {
         if(pokeList.previous !== null) {
-            return true
-        } else return false
+            return <Button value="Página anterior" onClick={() => getData(pokeList.previous)}/>
+        } else return <Button value="Página anterior" className="disabled" />
     }
 
     return (
@@ -41,7 +41,7 @@ function PokeStore() {
                 <p>Filter by type: </p>
             </div>
             <div className="pokedex-area">
-                {previousCheckup() && <Button value="Página anterior" onClick={() => getData(pokeList.previous)}/>}
+                {previousCheckup()}
 
                 <div className="cards-container">
                     {   pokeList.results ?

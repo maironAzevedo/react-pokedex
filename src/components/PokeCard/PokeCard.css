@@ -2,9 +2,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 3px 3px 10px rgba(0,0,0,.2);
+    box-shadow: 3px 3px 10px rgba(0,0,0,.35);
     border-radius: .8rem;
     padding: 1.2rem 3.2rem;
+    transition: transform .1s ease;
+    max-width: 150px;
+}
+
+.pokemon-info:hover {
+    transform: scale(1.05);
 }
 
 .poke-header {
@@ -15,11 +21,14 @@
 
 .poke-header img {
     width: 120px;
+    border-radius: 50%;
+    border: 3px solid salmon;
+    padding: .8rem;
 }
 
 .poke-header h3 {
     text-transform: capitalize;
-    font-weight: bold;
+    font-weight: 500;
     font-size: 1.6rem;
     margin: 1.2rem 1.2rem .2rem;
 }
